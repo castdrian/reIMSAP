@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "PresentationFramework.Aero2/1.0.1": {
+        "runtime": {
+          "lib/PresentationFramework.Aero2.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.2053.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PresentationFramework.Aero2/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BHOis2abvvr3JnvQPOevmGfa7tK8iH3yFJIA4lbtLPTVZ1pbOsq41CsgAA3DhtHody+Zsn/PRfKXzWr2dKIpcA==",
+      "path": "presentationframework.aero2/1.0.1",
+      "hashPath": "presentationframework.aero2.1.0.1.nupkg.sha512"
+    }
+  }
+}

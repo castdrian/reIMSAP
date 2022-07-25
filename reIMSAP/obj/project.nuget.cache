@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "CrJDcBXKp+hwh0n+K6Z7bGbMSkpVOYir0U1QW62roOpTW/p2z2Y7LsLeTk/5rnTAti55AStzPPWpP0BJFRLGdg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\FernAdr\\Desktop\\code\\reIMSAP\\reIMSAP\\reIMSAP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\FernAdr\\.nuget\\packages\\presentationframework.aero2\\1.0.1\\presentationframework.aero2.1.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PresentationFramework.Aero2 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PresentationFramework.Aero2",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
+}
