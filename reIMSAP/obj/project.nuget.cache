@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "CrJDcBXKp+hwh0n+K6Z7bGbMSkpVOYir0U1QW62roOpTW/p2z2Y7LsLeTk/5rnTAti55AStzPPWpP0BJFRLGdg==",
+  "dgSpecHash": "R1sypfhFVAqXcf7CmEq+405t69c07DfD+m7LoIFUQJ4tWKCwhC5PVWbvPowEKsWjQpCA8nuIpslhvUDQbyf3uA==",
   "success": true,
   "projectFilePath": "C:\\Users\\FernAdr\\Desktop\\code\\reIMSAP\\reIMSAP\\reIMSAP.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FernAdr\\.nuget\\packages\\presentationframework.aero2\\1.0.1\\presentationframework.aero2.1.0.1.nupkg.sha512"
+    "C:\\Users\\FernAdr\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
+    "C:\\Users\\FernAdr\\.nuget\\packages\\presentationframework.aero2\\1.0.1\\presentationframework.aero2.1.0.1.nupkg.sha512",
+    "C:\\Users\\FernAdr\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": [
     {

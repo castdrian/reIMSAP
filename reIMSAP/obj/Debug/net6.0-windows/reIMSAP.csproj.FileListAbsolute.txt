@@ -22,3 +22,5 @@ C:\Users\FernAdr\Desktop\code\reIMSAP\reIMSAP\obj\Debug\net6.0-windows\ref\reIMS
 C:\Users\FernAdr\Desktop\code\reIMSAP\reIMSAP\obj\Debug\net6.0-windows\Theme\ColourfulDarkTheme.baml
 C:\Users\FernAdr\Desktop\code\reIMSAP\reIMSAP\obj\Debug\net6.0-windows\Theme\ColourfulDarkTheme.g.cs
 C:\Users\FernAdr\Desktop\code\reIMSAP\reIMSAP\obj\Debug\net6.0-windows\App.baml
+C:\Users\FernAdr\Desktop\code\reIMSAP\reIMSAP\bin\Debug\net6.0-windows\Npgsql.dll
+C:\Users\FernAdr\Desktop\code\reIMSAP\reIMSAP\obj\Debug\net6.0-windows\reIMSAP.csproj.CopyComplete

@@ -16,6 +16,10 @@
             <ColumnDefinition Width="143*"/>
             <ColumnDefinition Width="271*"/>
         </Grid.ColumnDefinitions>
+        <Label x:Name="login" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Content="Logged in as:" Grid.ColumnSpan="3" Width="155"/>
+        <TextBox x:Name="host" Grid.Column="2" HorizontalAlignment="Left" Margin="219,4,0,0" TextWrapping="Wrap" Text="10.130.37.106" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Label Grid.Column="2" Content="reIMS DB Host:" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="3" Content="Connect" HorizontalAlignment="Left" Margin="32,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.019,0.24" Click="Button_Click"/>
 
     </Grid>
 </Window>

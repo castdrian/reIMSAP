@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Npgsql" Version="6.0.5" />
     <PackageReference Include="PresentationFramework.Aero2" Version="1.0.1" />
   </ItemGroup>
 
