@@ -16,8 +16,8 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
 
-        <Button Content="Update" HorizontalAlignment="Left" Margin="473,104,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="336,104,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
+        <Button x:Name="update" Content="Update" HorizontalAlignment="Left" Margin="473,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="update_Click"/>
+        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="336,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="delete_Click"/>
 
     </Grid>
 </Window>

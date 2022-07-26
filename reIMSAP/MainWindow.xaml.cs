@@ -50,17 +50,9 @@ namespace reIMSAP
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                 DataRowView SelectedRow = (DataRowView)row.Item;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-                string item = SelectedRow["item"].ToString() ?? "";
-                string amount = SelectedRow["amount"].ToString() ?? "";
-                string connector = SelectedRow["connector"].ToString() ?? "";
-                string color = SelectedRow["color"].ToString() ?? "";
-                string type = SelectedRow["type"].ToString() ?? "";
-                string length = SelectedRow["length"].ToString() ?? "";
-                string cclass = SelectedRow["class"].ToString() ?? "";
-                string mode = SelectedRow["mode"].ToString() ?? "";
-
-                Window edit = new EditWindow(SelectedRow, dbgrid);
+                Window edit = new EditWindow(SelectedRow, host.Text);
                 edit.ShowDialog();
+                ShowData(host.Text, dbgrid);
             }
         }
     }
