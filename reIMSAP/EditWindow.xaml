@@ -1,0 +1,23 @@
+﻿<Window x:Class="reIMSAP.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:reIMSAP"
+        mc:Ignorable="d"
+        Style="{DynamicResource CustomWindowStyle}"
+        Title="Edit Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="gridrow" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="Black"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+
+        <Button Content="Update" HorizontalAlignment="Left" Margin="473,115,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="336,115,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
+
+    </Grid>
+</Window>
