@@ -32,10 +32,9 @@
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-        <Button x:Name="exportdb" Grid.Column="4" Content="Export DB" HorizontalAlignment="Left" Margin="76,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Click="exportdb_Click"/>
-        <Button x:Name="importdb" Grid.Column="3" Content="Import DB" HorizontalAlignment="Left" Margin="129,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Grid.ColumnSpan="2" Click="importdb_Click"/>
+        <Button x:Name="exportdb" Grid.Column="3" Content="Export DB" HorizontalAlignment="Left" Margin="126,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Click="exportdb_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="additem" Grid.Column="3" Content="Add Item" HorizontalAlignment="Left" Margin="39,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Click="additem_Click"/>
-        <Button Grid.Column="4" Content="About" HorizontalAlignment="Left" Margin="166,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.185" Width="85" Click="Button_Click_1"/>
+        <Button Grid.Column="4" Content="About" HorizontalAlignment="Left" Margin="176,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.185" Width="85" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
