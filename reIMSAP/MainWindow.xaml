@@ -17,9 +17,25 @@
             <ColumnDefinition Width="271*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="login" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Content="Logged in as:" Grid.ColumnSpan="3" Width="155"/>
-        <TextBox x:Name="host" Grid.Column="2" HorizontalAlignment="Left" Margin="219,4,0,0" TextWrapping="Wrap" Text="10.130.37.106" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Label Grid.Column="2" Content="reIMS DB Host:" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="3" Content="Connect" HorizontalAlignment="Left" Margin="32,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.019,0.24" Click="Button_Click"/>
+        <TextBox x:Name="host" Grid.Column="2" HorizontalAlignment="Left" Margin="191,4,0,0" TextWrapping="Wrap" Text="10.130.37.106" VerticalAlignment="Top" Width="97"/>
+        <Label Grid.Column="2" Content="reIMS DB Host:" HorizontalAlignment="Left" Margin="101,0,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="2" Content="Connect" HorizontalAlignment="Left" Margin="293,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.019,0.24" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dbgrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="1,27,10,10" Grid.ColumnSpan="5" IsReadOnly="True">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="Black"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        <Button x:Name="exportdb" Grid.Column="4" Content="Export DB" HorizontalAlignment="Left" Margin="76,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False"/>
+        <Button x:Name="importdb" Grid.Column="3" Content="Import DB" HorizontalAlignment="Left" Margin="129,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button x:Name="additem" Grid.Column="3" Content="Add Item" HorizontalAlignment="Left" Margin="39,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False"/>
+        <Button Grid.Column="4" Content="About" HorizontalAlignment="Left" Margin="166,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.185" Width="85" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
