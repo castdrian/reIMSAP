@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Data;
-using System.Diagnostics;
-using static System.Linq.Enumerable;
 using System.Windows.Controls;
-using Npgsql;
+using static System.Linq.Enumerable;
 
 namespace reIMSAP
 {
@@ -34,27 +33,71 @@ namespace reIMSAP
 
             string columns = "";
             string data = "";
-            foreach (int i in Range(1, row.Row.Table.Columns.Count-1))
+            foreach (int i in Range(1, row.Row.Table.Columns.Count - 1))
             {
                 columns += $"{row.Row.Table.Columns[i].ColumnName},";
-                if (row[i].GetType() == typeof(System.Int32)) 
+                if (row[i].GetType() == typeof(System.Int32))
                 {
                     data += $"{row[i]},";
                 }
-                if (row[i].GetType() == typeof(System.String)) 
+                if (row[i].GetType() == typeof(System.String))
                 {
                     data += $"'{row[i]}',";
                 }
-                if (row[i].GetType() == typeof(System.DBNull)) 
+                if (row[i].GetType() == typeof(System.DBNull))
                 {
                     data += $"NULL,";
                 }
-                
             }
             columns = columns.Remove(columns.Length - 1, 1);
             data = data.Remove(data.Length - 1, 1);
-       
+
             NpgsqlCommand updateRow = new NpgsqlCommand($"update cords set ({columns}) = ({data}) where {row.Row.Table.Columns[0].ColumnName}='{row[0]}'", con);
+            updateRow.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public static void InsertRow(String host, DataRowView row)
+        {
+            var cs = $"Host={host};Username=pi;Database=reims";
+
+            using var con = new NpgsqlConnection(cs);
+            con.Open();
+
+            string columns = "";
+            string data = "";
+            foreach (int i in Range(0, row.Row.Table.Columns.Count))
+            {
+                columns += $"{row.Row.Table.Columns[i].ColumnName},";
+                if (row[i].GetType() == typeof(System.Int32))
+                {
+                    data += $"{row[i]},";
+                }
+                if (row[i].GetType() == typeof(System.String))
+                {
+                    data += $"'{row[i]}',";
+                }
+                if (row[i].GetType() == typeof(System.DBNull))
+                {
+                    data += $"NULL,";
+                }
+            }
+            columns = columns.Remove(columns.Length - 1, 1);
+            data = data.Remove(data.Length - 1, 1);
+
+            NpgsqlCommand updateRow = new NpgsqlCommand($"insert into cords ({columns}) values({data})", con);
+            updateRow.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public static void DeleteRow(String host, DataRowView row)
+        {
+            var cs = $"Host={host};Username=pi;Database=reims";
+
+            using var con = new NpgsqlConnection(cs);
+            con.Open();
+
+            NpgsqlCommand updateRow = new NpgsqlCommand($"delete from cords where {row.Row.Table.Columns[0].ColumnName}='{row[0]}'", con);
             updateRow.ExecuteNonQuery();
             con.Close();
         }

@@ -8,7 +8,7 @@
         Style="{DynamicResource CustomWindowStyle}"
         Title="Edit Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="gridrow" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82" RowHeight="64" VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" FontSize="15" ScrollViewer.CanContentScroll="False">
+        <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82" RowHeight="64" VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" FontSize="15" ScrollViewer.CanContentScroll="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="Black"/>

@@ -16,4 +16,10 @@
     <PackageReference Include="PresentationFramework.Aero2" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="AddWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
 </Project>

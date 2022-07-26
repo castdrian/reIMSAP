@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using System.Security.Principal;
-using System.Security.Cryptography;
-using static reIMSAP.Util;
-using static reIMSAP.SQL;
-using System.Diagnostics;
-using Npgsql;
-using System.Windows.Controls;
 using System.Data;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using static reIMSAP.SQL;
+using static reIMSAP.Util;
 
 namespace reIMSAP
 {
@@ -21,16 +16,17 @@ namespace reIMSAP
         public MainWindow()
         {
             InitializeComponent();
-            if (!IsCurrentProcessAdmin()) if (!Auth()) {
+            if (!IsCurrentProcessAdmin()) if (!Auth())
+                {
                     MessageBox.Show("You are not authorized to use this application.", "reIMS - Admin Panel", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Application.Current.Shutdown(); 
+                    Application.Current.Shutdown();
                 }
             login.Content = $"Logged in as {Environment.UserName}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ShowData(host.Text,dbgrid);
+            ShowData(host.Text, dbgrid);
             additem.IsEnabled = true;
             importdb.IsEnabled = true;
             exportdb.IsEnabled = true;
@@ -50,10 +46,27 @@ namespace reIMSAP
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                 DataRowView SelectedRow = (DataRowView)row.Item;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-                Window edit = new EditWindow(SelectedRow, host.Text);
+                Window edit = new EditWindow(host.Text, SelectedRow);
                 edit.ShowDialog();
                 ShowData(host.Text, dbgrid);
             }
+        }
+
+        private void additem_Click(object sender, RoutedEventArgs e)
+        {
+            Window add = new AddWindow(host.Text, dbgrid);
+            add.ShowDialog();
+            ShowData(host.Text, dbgrid);
+        }
+
+        private void importdb_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void exportdb_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
