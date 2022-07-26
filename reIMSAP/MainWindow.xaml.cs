@@ -59,7 +59,7 @@ namespace reIMSAP
                 string cclass = SelectedRow["class"].ToString() ?? "";
                 string mode = SelectedRow["mode"].ToString() ?? "";
 
-                Window edit = new EditWindow();
+                Window edit = new EditWindow(SelectedRow, dbgrid);
                 edit.ShowDialog();
             }
         }

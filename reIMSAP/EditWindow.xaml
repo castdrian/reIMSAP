@@ -8,7 +8,7 @@
         Style="{DynamicResource CustomWindowStyle}"
         Title="Edit Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="gridrow" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82">
+        <DataGrid x:Name="gridrow" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82" RowHeight="64" VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" FontSize="15" ScrollViewer.CanContentScroll="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="Black"/>
@@ -16,8 +16,8 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
 
-        <Button Content="Update" HorizontalAlignment="Left" Margin="473,115,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="336,115,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="473,104,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="336,104,0,0" VerticalAlignment="Top" Height="40" Width="122"/>
 
     </Grid>
 </Window>
