@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ namespace reIMSAP
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Dictionary<string, string> db = new Dictionary<string, string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,10 @@ namespace reIMSAP
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ShowData(host.Text, dbgrid);
+            this.db.Add("host", host.Text);
+            this.db.Add("user", dbuser.Text);
+            this.db.Add("db", dbname.Text);
+            ShowData(this.db, dbgrid);
             additem.IsEnabled = true;
             exportdb.IsEnabled = true;
         }
@@ -46,17 +51,17 @@ namespace reIMSAP
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                 DataRowView SelectedRow = (DataRowView)row.Item;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-                Window edit = new EditWindow(host.Text, SelectedRow);
+                Window edit = new EditWindow(this.db, SelectedRow);
                 edit.ShowDialog();
-                ShowData(host.Text, dbgrid);
+                ShowData(this.db, dbgrid);
             }
         }
 
         private void additem_Click(object sender, RoutedEventArgs e)
         {
-            Window add = new AddWindow(host.Text, dbgrid);
+            Window add = new AddWindow(this.db, dbgrid);
             add.ShowDialog();
-            ShowData(host.Text, dbgrid);
+            ShowData(this.db, dbgrid);
         }
 
         private void exportdb_Click(object sender, RoutedEventArgs e)

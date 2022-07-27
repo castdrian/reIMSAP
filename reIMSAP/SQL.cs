@@ -1,5 +1,5 @@
 ﻿using Npgsql;
-using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
 using static System.Linq.Enumerable;
@@ -8,9 +8,9 @@ namespace reIMSAP
 {
     internal class SQL
     {
-        public static void ShowData(String host, DataGrid dbgrid)
+        public static void ShowData(Dictionary<string, string> db, DataGrid dbgrid)
         {
-            var cs = $"Host={host};Username=pi;Database=reims";
+            var cs = $"Host={db["host"]};Username={db["user"]};Database={db["db"]}";
 
             using var con = new NpgsqlConnection(cs);
             con.Open();
@@ -24,9 +24,9 @@ namespace reIMSAP
             con.Close();
         }
 
-        public static void UpdateRow(String host, DataRowView row)
+        public static void UpdateRow(Dictionary<string, string> db, DataRowView row)
         {
-            var cs = $"Host={host};Username=pi;Database=reims";
+            var cs = $"Host={db["host"]};Username={db["user"]};Database={db["db"]}";
 
             using var con = new NpgsqlConnection(cs);
             con.Open();
@@ -57,9 +57,9 @@ namespace reIMSAP
             con.Close();
         }
 
-        public static void InsertRow(String host, DataRowView row)
+        public static void InsertRow(Dictionary<string, string> db, DataRowView row)
         {
-            var cs = $"Host={host};Username=pi;Database=reims";
+            var cs = $"Host={db["host"]};Username={db["user"]};Database={db["db"]}";
 
             using var con = new NpgsqlConnection(cs);
             con.Open();
@@ -90,9 +90,9 @@ namespace reIMSAP
             con.Close();
         }
 
-        public static void DeleteRow(String host, DataRowView row)
+        public static void DeleteRow(Dictionary<string, string> db, DataRowView row)
         {
-            var cs = $"Host={host};Username=pi;Database=reims";
+            var cs = $"Host={db["host"]};Username={db["user"]};Database={db["db"]}";
 
             using var con = new NpgsqlConnection(cs);
             con.Open();

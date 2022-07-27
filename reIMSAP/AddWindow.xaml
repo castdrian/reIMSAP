@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:reIMSAP"
         mc:Ignorable="d"
         Style="{DynamicResource CustomWindowStyle}"
-        Title="Add Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen">
+        Title="Add Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82" RowHeight="64" VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" FontSize="15" ScrollViewer.CanContentScroll="False">
             <DataGrid.ColumnHeaderStyle>

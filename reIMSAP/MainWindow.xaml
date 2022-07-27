@@ -6,21 +6,25 @@
         xmlns:local="clr-namespace:reIMSAP"
         mc:Ignorable="d"
         Style="{DynamicResource CustomWindowStyle}"
-        Title="reIMS - Admin Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="reIMS - Admin Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="49*"/>
             <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="324*"/>
-            <ColumnDefinition Width="143*"/>
-            <ColumnDefinition Width="271*"/>
+            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="227*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="login" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Content="Logged in as:" Grid.ColumnSpan="3" Width="155"/>
-        <TextBox x:Name="host" Grid.Column="2" HorizontalAlignment="Left" Margin="191,4,0,0" TextWrapping="Wrap" Text="10.130.37.106" VerticalAlignment="Top" Width="97"/>
-        <Label Grid.Column="2" Content="reIMS DB Host:" HorizontalAlignment="Left" Margin="101,0,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="2" Content="Connect" HorizontalAlignment="Left" Margin="293,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.019,0.24" Click="Button_Click" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="dbgrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="1,27,10,10" Grid.ColumnSpan="5" IsReadOnly="True">
+        <Label x:Name="login" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Content="Logged in as:" Grid.ColumnSpan="5" Width="155"/>
+        <TextBox x:Name="host" Grid.Column="4" HorizontalAlignment="Left" Margin="122,5,0,0" TextWrapping="Wrap" Text="10.130.37.106" VerticalAlignment="Top" Width="90"/>
+        <Label Grid.Column="4" Content="reIMS DB Host:" HorizontalAlignment="Left" Margin="32,0,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="6" Content="Connect" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.019,0.24" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dbgrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="1,27,10,10" Grid.ColumnSpan="9" IsReadOnly="True">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="Black"/>
@@ -32,9 +36,13 @@
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-        <Button x:Name="exportdb" Grid.Column="3" Content="Export DB" HorizontalAlignment="Left" Margin="126,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Click="exportdb_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="additem" Grid.Column="3" Content="Add Item" HorizontalAlignment="Left" Margin="39,4,0,0" VerticalAlignment="Top" Width="85" IsEnabled="False" Click="additem_Click"/>
-        <Button Grid.Column="4" Content="About" HorizontalAlignment="Left" Margin="176,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.185" Width="85" Click="Button_Click_1"/>
+        <Button x:Name="exportdb" Grid.Column="8" Content="Export DB" HorizontalAlignment="Left" Margin="62,3,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="exportdb_Click"/>
+        <Button x:Name="additem" Grid.Column="7" Content="Add Item" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="additem_Click" Grid.ColumnSpan="2"/>
+        <Button Grid.Column="8" Content="About" HorizontalAlignment="Left" Margin="142,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.185" Width="75" Click="Button_Click_1"/>
+        <Label Grid.Column="4" Content="DB:" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dbname" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="238,5,0,0" TextWrapping="Wrap" Text="reims" VerticalAlignment="Top" Width="50"/>
+        <Label Grid.Column="5" Content="DB User:" HorizontalAlignment="Left" Margin="12,1,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dbuser" Grid.Column="5" HorizontalAlignment="Left" Margin="64,5,0,0" TextWrapping="Wrap" Text="pi" VerticalAlignment="Top" Width="50"/>
 
     </Grid>
 </Window>

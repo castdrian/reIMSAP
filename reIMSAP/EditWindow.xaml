@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:reIMSAP"
         mc:Ignorable="d"
         Style="{DynamicResource CustomWindowStyle}"
-        Title="Edit Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen">
+        Title="Edit Entry" Height="183" Width="607" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82" RowHeight="64" VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" FontSize="15" ScrollViewer.CanContentScroll="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="562*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,82" RowHeight="64" VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" FontSize="15" ScrollViewer.CanContentScroll="False" Grid.ColumnSpan="2">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="Black"/>
@@ -16,8 +20,8 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
 
-        <Button x:Name="update" Content="Update" HorizontalAlignment="Left" Margin="473,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="update_Click"/>
-        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="336,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="delete_Click"/>
+        <Button x:Name="update" Content="Update" HorizontalAlignment="Left" Margin="430,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="update_Click" Grid.Column="1"/>
+        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="293,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="delete_Click" Grid.Column="1"/>
 
     </Grid>
 </Window>

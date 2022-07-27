@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using static reIMSAP.SQL;
@@ -12,12 +13,12 @@ namespace reIMSAP
     /// </summary>
     public partial class AddWindow : Window
     {
-        private string host;
+        private Dictionary<string, string> db = new Dictionary<string, string>();
 
-        public AddWindow(string host, DataGrid maingrid)
+        public AddWindow(Dictionary<string, string> db, DataGrid maingrid)
         {
             InitializeComponent();
-            this.host = host;
+            this.db = db;
             ScrollViewer.SetCanContentScroll(this, false);
             DataTable dt = ((DataView)maingrid.ItemsSource).ToTable();
             dt.Rows.Clear();
@@ -26,11 +27,11 @@ namespace reIMSAP
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult add = MessageBox.Show("Do you wish to add this entry?", "reIMS - Admin Panel", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (add != MessageBoxResult.Yes) return;
+            MessageBoxResult insert = MessageBox.Show("Do you wish to add this entry?", "reIMS - Admin Panel", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (insert != MessageBoxResult.Yes) return;
             DataRowView drv = (DataRowView)grid.Items.GetItemAt(0);
-            AddWindow edit = (AddWindow)GetWindow(sender as DependencyObject);
-            InsertRow(edit.host, drv);
+            AddWindow add = (AddWindow)GetWindow(sender as DependencyObject);
+            InsertRow(add.db, drv);
             this.Close();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using static reIMSAP.SQL;
@@ -12,12 +13,12 @@ namespace reIMSAP
     /// </summary>
     public partial class EditWindow : Window
     {
-        private string host;
+        private Dictionary<string, string> db = new Dictionary<string, string>();
 
-        public EditWindow(string host, DataRowView row)
+        public EditWindow(Dictionary<string, string> db, DataRowView row)
         {
             InitializeComponent();
-            this.host = host;
+            this.db = db;
             ScrollViewer.SetCanContentScroll(this, false);
             DataTable dt = row.DataView.ToTable();
             dt.Rows.Clear();
@@ -31,7 +32,7 @@ namespace reIMSAP
             if (update != MessageBoxResult.Yes) return;
             DataRowView drv = (DataRowView)grid.Items.GetItemAt(0);
             EditWindow edit = (EditWindow)GetWindow(sender as DependencyObject);
-            UpdateRow(edit.host, drv);
+            UpdateRow(edit.db, drv);
             this.Close();
         }
 
@@ -41,7 +42,7 @@ namespace reIMSAP
             if (delete != MessageBoxResult.Yes) return;
             DataRowView drv = (DataRowView)grid.Items.GetItemAt(0);
             EditWindow edit = (EditWindow)GetWindow(sender as DependencyObject);
-            DeleteRow(edit.host, drv);
+            DeleteRow(edit.db, drv);
             this.Close();
         }
     }
