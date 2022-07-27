@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BarcodeLib;
+using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -81,6 +83,15 @@ namespace reIMSAP
                 sw.Write(sw.NewLine);
             }
             sw.Close();
+        }
+
+        public static void GenBarcode(DataRowView row, String filename)
+        {
+            Barcode b = new Barcode();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Image img = b.Encode(TYPE.CODE128, row[0].ToString().Replace('/', '-'), Color.Black, Color.White, 400, 100);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            img.Save(filename);
         }
     }
 }

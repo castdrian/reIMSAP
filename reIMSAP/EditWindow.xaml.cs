@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using static reIMSAP.SQL;
+using static reIMSAP.Util;
 
 
 
@@ -44,6 +46,22 @@ namespace reIMSAP
             EditWindow edit = (EditWindow)GetWindow(sender as DependencyObject);
             DeleteRow(edit.db, drv);
             this.Close();
+        }
+
+        private void barcode_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView drv = (DataRowView)grid.Items.GetItemAt(0);
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PNG files (*.png)|*.png";
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            saveFileDialog.FileName = $"{drv[0].ToString().Replace('/', '-')}.png";
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                GenBarcode(drv, saveFileDialog.FileName);
+                MessageBox.Show($"Barcode saved as {saveFileDialog.FileName}.", "reIMS - Admin Panel", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
