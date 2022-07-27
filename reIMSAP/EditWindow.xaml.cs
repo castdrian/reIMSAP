@@ -53,9 +53,9 @@ namespace reIMSAP
             DataRowView drv = (DataRowView)grid.Items.GetItemAt(0);
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PNG files (*.png)|*.png";
+            saveFileDialog.Filter = "JPG files (*.jpg)|*.jpg";
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            saveFileDialog.FileName = $"{drv[0].ToString().Replace('/', '-')}.png";
+            saveFileDialog.FileName = $"{drv[0].ToString().Replace('/', '-')}.jpg";
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             if (saveFileDialog.ShowDialog() == true)
             {

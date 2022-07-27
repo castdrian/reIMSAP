@@ -1,11 +1,12 @@
-﻿using BarcodeLib;
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 namespace reIMSAP
 {
@@ -39,6 +40,11 @@ namespace reIMSAP
             using var identity = System.Security.Principal.WindowsIdentity.GetCurrent();
             var principal = new System.Security.Principal.WindowsPrincipal(identity);
             return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
+        }
+
+        public static String UrlEncode(this String str)
+        {
+            return HttpUtility.UrlEncode(str);
         }
 
         public static void ToCSV(this DataTable dtDataTable, string strFilePath)
@@ -87,10 +93,14 @@ namespace reIMSAP
 
         public static void GenBarcode(DataRowView row, String filename)
         {
-            Barcode b = new Barcode();
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            Image img = b.Encode(TYPE.CODE128, row[0].ToString().Replace('/', '-'), Color.Black, Color.White, 400, 100);
+            string url = $"https://barcode.tec-it.com/barcode.ashx?data={row[0].ToString().Replace('/', '-').UrlEncode()}&code=Code128&translate-esc=on&imagetype=Jpg";
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+            using var httpClient = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            var response = httpClient.Send(request);
+            Image img = Image.FromStream(response.Content.ReadAsStream());
             img.Save(filename);
         }
     }

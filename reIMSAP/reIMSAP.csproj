@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BarcodeLib" Version="2.4.0" />
     <PackageReference Include="Npgsql" Version="6.0.5" />
     <PackageReference Include="PresentationFramework.Aero2" Version="1.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
