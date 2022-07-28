@@ -20,9 +20,9 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
 
-        <Button x:Name="update" Content="Update" HorizontalAlignment="Left" Margin="430,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="update_Click" Grid.Column="1"/>
-        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="293,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="delete_Click" Grid.Column="1"/>
-        <Button x:Name="barcode" Content="Barcode" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Grid.ColumnSpan="2" Click="barcode_Click"/>
+        <Button x:Name="update" Content="Update" HorizontalAlignment="Left" Margin="430,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="Update_Click" Grid.Column="1"/>
+        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="293,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="Delete_Click" Grid.Column="1"/>
+        <Button x:Name="barcode" Content="Barcode" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Grid.ColumnSpan="2" Click="Barcode_Click"/>
 
     </Grid>
 </Window>

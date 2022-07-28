@@ -36,8 +36,8 @@
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-        <Button x:Name="exportdb" Grid.Column="8" Content="Export DB" HorizontalAlignment="Left" Margin="62,3,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="exportdb_Click"/>
-        <Button x:Name="additem" Grid.Column="7" Content="Add Item" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="additem_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="exportdb" Grid.Column="8" Content="Export DB" HorizontalAlignment="Left" Margin="62,3,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Exportdb_Click"/>
+        <Button x:Name="additem" Grid.Column="7" Content="Add Item" HorizontalAlignment="Left" Margin="26,3,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Additem_Click" Grid.ColumnSpan="2"/>
         <Button Grid.Column="8" Content="About" HorizontalAlignment="Left" Margin="142,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.185" Width="75" Click="Button_Click_1"/>
         <Label Grid.Column="4" Content="DB:" HorizontalAlignment="Left" Margin="180,0,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="dbname" Grid.Column="4" HorizontalAlignment="Left" Margin="206,5,0,0" TextWrapping="Wrap" Text="reims" VerticalAlignment="Top" Width="50"/>

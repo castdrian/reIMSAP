@@ -13,7 +13,7 @@ namespace reIMSAP
     /// </summary>
     public partial class AddWindow : Window
     {
-        private Dictionary<string, string> db = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> db = new();
 
         public AddWindow(Dictionary<string, string> db, DataGrid maingrid)
         {
@@ -25,7 +25,7 @@ namespace reIMSAP
             grid.ItemsSource = dt.DefaultView;
         }
 
-        private void add_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult insert = MessageBox.Show("Do you wish to add this entry?", "reIMS - Admin Panel", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (insert != MessageBoxResult.Yes) return;

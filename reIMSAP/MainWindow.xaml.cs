@@ -15,7 +15,7 @@ namespace reIMSAP
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Dictionary<string, string> db = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> db = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -57,17 +57,19 @@ namespace reIMSAP
             }
         }
 
-        private void additem_Click(object sender, RoutedEventArgs e)
+        private void Additem_Click(object sender, RoutedEventArgs e)
         {
             Window add = new AddWindow(this.db, dbgrid);
             add.ShowDialog();
             ShowData(this.db, dbgrid);
         }
 
-        private void exportdb_Click(object sender, RoutedEventArgs e)
+        private void Exportdb_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+            SaveFileDialog saveFileDialog = new()
+            {
+                Filter = "CSV files (*.csv)|*.csv"
+            };
             if (saveFileDialog.ShowDialog() == true)
             {
                 DataTable dt = ((DataView)dbgrid.ItemsSource).ToTable();

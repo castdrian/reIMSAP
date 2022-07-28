@@ -15,7 +15,7 @@ namespace reIMSAP
     /// </summary>
     public partial class EditWindow : Window
     {
-        private Dictionary<string, string> db = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> db = new();
 
         public EditWindow(Dictionary<string, string> db, DataRowView row)
         {
@@ -28,7 +28,7 @@ namespace reIMSAP
             grid.ItemsSource = dt.DefaultView;
         }
 
-        private void update_Click(object sender, RoutedEventArgs e)
+        private void Update_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult update = MessageBox.Show("Do you wish to update the selected entry?", "reIMS - Admin Panel", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (update != MessageBoxResult.Yes) return;
@@ -38,7 +38,7 @@ namespace reIMSAP
             this.Close();
         }
 
-        private void delete_Click(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult delete = MessageBox.Show("Do you wish to delete the selected entry?", "reIMS - Admin Panel", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (delete != MessageBoxResult.Yes) return;
@@ -48,14 +48,16 @@ namespace reIMSAP
             this.Close();
         }
 
-        private void barcode_Click(object sender, RoutedEventArgs e)
+        private void Barcode_Click(object sender, RoutedEventArgs e)
         {
             DataRowView drv = (DataRowView)grid.Items.GetItemAt(0);
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "JPG files (*.jpg)|*.jpg";
+            SaveFileDialog saveFileDialog = new()
+            {
+                Filter = "JPG files (*.jpg)|*.jpg",
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            saveFileDialog.FileName = $"{drv[0].ToString().Replace('/', '-')}.jpg";
+                FileName = $"{drv[0].ToString().Replace('/', '-')}.jpg"
+            };
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             if (saveFileDialog.ShowDialog() == true)
             {

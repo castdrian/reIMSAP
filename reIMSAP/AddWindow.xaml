@@ -16,7 +16,7 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
 
-        <Button x:Name="add" Content="Add" HorizontalAlignment="Left" Margin="473,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="add_Click"/>
+        <Button x:Name="add" Content="Add" HorizontalAlignment="Left" Margin="473,104,0,0" VerticalAlignment="Top" Height="40" Width="122" Click="Add_Click"/>
 
     </Grid>
 </Window>

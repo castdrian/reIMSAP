@@ -15,9 +15,9 @@ namespace reIMSAP
             using var con = new NpgsqlConnection(cs);
             con.Open();
 
-            NpgsqlCommand getAll = new NpgsqlCommand("select * from cords", con);
-            DataTable dt = new DataTable();
-            NpgsqlDataAdapter a = new NpgsqlDataAdapter(getAll);
+            NpgsqlCommand getAll = new("select * from cords", con);
+            DataTable dt = new();
+            NpgsqlDataAdapter a = new(getAll);
 
             a.Fill(dt);
             dbgrid.ItemsSource = dt.DefaultView;
@@ -40,7 +40,7 @@ namespace reIMSAP
                 {
                     data += $"{row[i]},";
                 }
-                if (row[i].GetType() == typeof(System.String))
+                if (row[i].GetType() == typeof(string))
                 {
                     data += $"'{row[i]}',";
                 }
@@ -52,7 +52,7 @@ namespace reIMSAP
             columns = columns.Remove(columns.Length - 1, 1);
             data = data.Remove(data.Length - 1, 1);
 
-            NpgsqlCommand updateRow = new NpgsqlCommand($"update cords set ({columns}) = ({data}) where {row.Row.Table.Columns[0].ColumnName}='{row[0]}'", con);
+            NpgsqlCommand updateRow = new($"update cords set ({columns}) = ({data}) where {row.Row.Table.Columns[0].ColumnName}='{row[0]}'", con);
             updateRow.ExecuteNonQuery();
             con.Close();
         }
@@ -73,7 +73,7 @@ namespace reIMSAP
                 {
                     data += $"{row[i]},";
                 }
-                if (row[i].GetType() == typeof(System.String))
+                if (row[i].GetType() == typeof(string))
                 {
                     data += $"'{row[i]}',";
                 }
@@ -85,7 +85,7 @@ namespace reIMSAP
             columns = columns.Remove(columns.Length - 1, 1);
             data = data.Remove(data.Length - 1, 1);
 
-            NpgsqlCommand updateRow = new NpgsqlCommand($"insert into cords ({columns}) values({data})", con);
+            NpgsqlCommand updateRow = new($"insert into cords ({columns}) values({data})", con);
             updateRow.ExecuteNonQuery();
             con.Close();
         }
@@ -97,7 +97,7 @@ namespace reIMSAP
             using var con = new NpgsqlConnection(cs);
             con.Open();
 
-            NpgsqlCommand updateRow = new NpgsqlCommand($"delete from cords where {row.Row.Table.Columns[0].ColumnName}='{row[0]}'", con);
+            NpgsqlCommand updateRow = new($"delete from cords where {row.Row.Table.Columns[0].ColumnName}='{row[0]}'", con);
             updateRow.ExecuteNonQuery();
             con.Close();
         }

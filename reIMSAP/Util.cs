@@ -12,8 +12,8 @@ namespace reIMSAP
 {
     internal static class Util
     {
-        private static readonly String[] users = { "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31" };
-        public static String Sha256_hash(string value)
+        private static readonly string[] users = { "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31" };
+        public static string Sha256_hash(string value)
         {
             StringBuilder Sb = new();
 
@@ -42,7 +42,7 @@ namespace reIMSAP
             return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
         }
 
-        public static String UrlEncode(this String str)
+        public static string UrlEncode(this string str)
         {
             return HttpUtility.UrlEncode(str);
         }
@@ -72,7 +72,7 @@ namespace reIMSAP
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                         if (value.Contains(','))
                         {
-                            value = String.Format("\"{0}\"", value);
+                            value = string.Format("\"{0}\"", value);
                             sw.Write(value);
                         }
                         else
@@ -91,7 +91,7 @@ namespace reIMSAP
             sw.Close();
         }
 
-        public static void GenBarcode(DataRowView row, String filename)
+        public static void GenBarcode(DataRowView row, string filename)
         {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             string url = $"https://barcode.tec-it.com/barcode.ashx?data={row[0].ToString().Replace('/', '-').UrlEncode()}&code=Code128&translate-esc=on&imagetype=Jpg";
