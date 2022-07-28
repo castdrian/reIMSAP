@@ -12,10 +12,10 @@ namespace reIMSAP
 {
     internal static class Util
     {
-        private static String[] users = { "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31" };
-        public static String sha256_hash(string value)
+        private static readonly String[] users = { "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31" };
+        public static String Sha256_hash(string value)
         {
-            StringBuilder Sb = new StringBuilder();
+            StringBuilder Sb = new();
 
             using (var hash = SHA256.Create())
             {
@@ -31,7 +31,7 @@ namespace reIMSAP
 
         public static bool Auth()
         {
-            if (users.Contains(sha256_hash(Environment.UserName))) return true;
+            if (users.Contains(Sha256_hash(Environment.UserName))) return true;
             else return false;
         }
 
@@ -49,7 +49,7 @@ namespace reIMSAP
 
         public static void ToCSV(this DataTable dtDataTable, string strFilePath)
         {
-            StreamWriter sw = new StreamWriter(strFilePath, false);
+            StreamWriter sw = new(strFilePath, false);
             //headers    
             for (int i = 0; i < dtDataTable.Columns.Count; i++)
             {
