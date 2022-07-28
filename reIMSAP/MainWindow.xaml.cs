@@ -35,6 +35,7 @@ namespace reIMSAP
             ShowData(this.db, dbgrid);
             additem.IsEnabled = true;
             exportdb.IsEnabled = true;
+            connect.IsEnabled = false;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

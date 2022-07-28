@@ -93,9 +93,9 @@ namespace reIMSAP
 
         public static void GenBarcode(DataRowView row, string filename)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            string url = $"https://barcode.tec-it.com/barcode.ashx?data={row[0].ToString().Replace('/', '-').UrlEncode()}&code=Code128&translate-esc=on&imagetype=Jpg";
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8604 // Possible null reference argument.
+            string url = $"https://barcode.tec-it.com/barcode.ashx?data={row[0].ToString().UrlEncode()}&code=Code128&translate-esc=off&imagetype=Jpg";
+#pragma warning restore CS8604 // Possible null reference argument.
 
             using var httpClient = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Get, url);
