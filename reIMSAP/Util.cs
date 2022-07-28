@@ -12,7 +12,13 @@ namespace reIMSAP
 {
     internal static class Util
     {
-        private static readonly string[] users = { "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31" };
+        private static readonly string[] users = { 
+            "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31", 
+            "84a76f17c77c9fd7c8d41a3ab9770ba48aba96afcc8ca201f8c44d39979d559f",
+            "16641c2790ac690dd7698dbb4e3dbe6fd633c0eeaf4c386471fd05dcea94d698",
+            "595ca859c43032b1e4d9a87a40c554f3f165edbf3069ca792c15dd84c87e631e",
+            "6b4c90e8b669058db41fa2d19c9b6860f67a8096bc398fd5e85cf66388446e18"
+        };
         public static string Sha256_hash(string value)
         {
             StringBuilder Sb = new();
