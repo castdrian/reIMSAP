@@ -25,6 +25,7 @@ namespace reIMSAP
                     Application.Current.Shutdown();
                 }
             login.Content = $"Logged in as {Environment.UserName}";
+            CheckHost(host.Text);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

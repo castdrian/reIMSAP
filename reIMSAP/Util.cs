@@ -3,17 +3,20 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Windows;
 
 namespace reIMSAP
 {
     internal static class Util
     {
-        private static readonly string[] users = { 
-            "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31", 
+        private static readonly string[] users = {
+            "e2711bfd2da9999831dc1cbf539829692ac8a135ad58a7e4783091a609be4a31",
             "84a76f17c77c9fd7c8d41a3ab9770ba48aba96afcc8ca201f8c44d39979d559f",
             "16641c2790ac690dd7698dbb4e3dbe6fd633c0eeaf4c386471fd05dcea94d698",
             "595ca859c43032b1e4d9a87a40c554f3f165edbf3069ca792c15dd84c87e631e",
@@ -108,6 +111,18 @@ namespace reIMSAP
             var response = httpClient.Send(request);
             Image img = Image.FromStream(response.Content.ReadAsStream());
             img.Save(filename);
+        }
+
+        public static void CheckHost(string host)
+        {
+            Ping ping = new();
+            IPAddress address = IPAddress.Parse(host);
+            PingReply pong = ping.Send(address);
+
+            if (pong.Status != IPStatus.Success)
+            {
+                MessageBox.Show($"Failed to ping default host {host}.\nYou are probably not connected to the correct network.\nIf you believe that you are not dum and on the correct network please change the default host before attempting to connect.", "reIMS - Admin Panel", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
